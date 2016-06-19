@@ -112,13 +112,13 @@
 </pre></div>
 
 
-<p><img alt="png" src="output_14_0.png" /></p>
+<p><img alt="png" src="images/output_14_0.png" /></p>
 <div class="highlight"><pre><span></span><span class="n">boxplt</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="n">scores_cwur</span><span class="p">,</span> <span class="n">scores_shanghai</span><span class="p">,</span> <span class="n">scores_times</span><span class="p">])</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Cwur&#39;</span><span class="p">,</span> <span class="s1">&#39;Shanghai&#39;</span><span class="p">,</span> <span class="s1">&#39;Times&#39;</span><span class="p">])</span>
 </pre></div>
 
 
-<p><img alt="png" src="output_15_0.png" /></p>
+<p><img alt="png" src="images/output_15_0.png" /></p>
 <p>looks like Shanghai &amp; Times do have a different scala than Cwur has thus we should standardize those</p>
 <div class="highlight"><pre><span></span><span class="n">cwur</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="p">(</span><span class="n">cwur</span><span class="o">.</span><span class="n">score</span> <span class="o">-</span> <span class="n">cwur</span><span class="o">.</span><span class="n">score</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">/</span><span class="n">cwur</span><span class="o">.</span><span class="n">score</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 <span class="n">shanghai</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="p">(</span><span class="n">shanghai</span><span class="o">.</span><span class="n">score</span> <span class="o">-</span> <span class="n">shanghai</span><span class="o">.</span><span class="n">score</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">/</span><span class="n">shanghai</span><span class="o">.</span><span class="n">score</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
@@ -137,7 +137,7 @@
 </pre></div>
 
 
-<p><img alt="png" src="output_19_0.png" /></p>
+<p><img alt="png" src="images/output_19_0.png" /></p>
 <p>way better, now we can try to merge those datasets: I'll start by cleaning the university_name string</p>
 <div class="highlight"><pre><span></span><span class="n">cwur</span><span class="o">.</span><span class="n">university_name</span> <span class="o">=</span> <span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">r&#39;[^a-zA-Z\s0-9]+&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span> <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">cwur</span><span class="o">.</span><span class="n">university_name</span><span class="p">]</span>
 <span class="n">shanghai</span><span class="o">.</span><span class="n">university_name</span> <span class="o">=</span> <span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">r&#39;[^a-zA-Z\s0-9]+&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span> <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">shanghai</span><span class="o">.</span><span class="n">university_name</span><span class="p">]</span>
