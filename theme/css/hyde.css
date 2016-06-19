@@ -65,7 +65,7 @@ html {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 18rem;
+    width: 14rem;
     text-align: center;
   }
 }
@@ -269,6 +269,15 @@ a.sidebar-nav-item.active:focus {
 /* Brown */
 .theme-base-0f .sidebar {
   background-color: #8f5536;
+}
+.theme-base-0f .content a,
+.theme-base-0f .related-posts li a:hover {
+  color: #8f5536;
+}
+
+/* Grey */
+.theme-base-0g .sidebar {
+  background-color: #333;
 }
 .theme-base-0f .content a,
 .theme-base-0f .related-posts li a:hover {
